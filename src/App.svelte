@@ -24,39 +24,52 @@
 
 	//Variables:----
 	let seconds = 0;
-  let tens = 0;
+  let minutes = 0;
   let milliseconds = 0;
   let interval;
   let clockActive = false;
+  let color = "#ff3860"; // Default color for initial state
 
 	//Functions:---------
 	const stopClock = function(){
+    //Will stop the clock time without resetting.
+    clearInterval(interval);
     clockActive = false;
+    color = "#ffdd57"
+
 	}
 
 	const startClock = function(){
+    //Will start the clock time
     if (clockActive === false){
       clockActive = true;
+      color = "#4edbc4";
 
-      milliseconds += 10;
+       // Update every 10 milliseconds
+      interval = setInterval(() => {
+          milliseconds += 10;
 
       if (milliseconds >= 1000) {
         milliseconds = 0;
-        tens++;
-      }
-      if (tens > 99) {
-        tens = 0;
         seconds++;
       }
-      if (seconds > 59) {
+
+      if (seconds >= 60) {
         seconds = 0;
+        minutes++;
       }
-      updateDisplay();
-    }
-	}
+      }, 10); // Runs every 10 ms for precise updates
+	 }
+}
 
 	const resetClock = function(){
-
+    //Will reset the clock time.
+    clearInterval(interval);
+    milliseconds = 0;
+    minutes = 0;
+    seconds = 0;
+    clockActive = false;
+    color = "#ff3860";
 	}
 </script>
 
@@ -73,10 +86,13 @@
   <section class="section / has-text-centered">
     <div class="container">
       <div class="stopwatch-wrapper">
-        <p class="subtitle / is-size-1 / has-text-weight-bold / has-text-warning">
-          <span class="seconds">{seconds == 0 ? "00": seconds}:</span>
-          <span class="tens">{tens == 0 ? "00" : tens}:</span>
-          <span class="milliseconds">{milliseconds == 0 ? "00" : milliseconds}</span>
+        <p class="subtitle / is-size-1 / has-text-weight-bold " style="
+         border: 5px solid {color};  box-shadow: 0 0 20px {color}, inset 0 0 20px rgba(0, 0, 0, 0.2); color: {color}">
+          <span class="minutes">{minutes < 10 ? `0${minutes}` : minutes}:</span>
+          <span class="seconds">{seconds < 10 ? `0${seconds}` : seconds}:</span>
+          <span class="milliseconds">
+            {milliseconds < 10 ? `00${milliseconds}` : milliseconds < 100 ? `0${milliseconds}` : milliseconds}
+          </span>
         </p> 
         <br>
       </div>
@@ -96,6 +112,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
   margin-bottom: 2%;
 }
 
@@ -104,18 +121,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     width: 20vw; /* Size scales based on viewport width */
     height: 20vw;
     min-width: 200px; /* Minimum size */
     min-height: 200px;
     max-width: 800px; /* Doubled the max width from 400px to 800px */
     max-height: 800px; /* Doubled the max height from 400px to 800px */
-    background-color: #171722;
+
+    background-color: #172220;
+  
     border-radius: 50%; /* Makes the div a circle */
-    border: 5px solid #d19900; /* Neon border */
-    box-shadow: 
-      0 0 20px rgba(209, 125, 0, 0.8),    
-      inset 0 0 20px rgba(0, 0, 0, 0.2); 
 
     text-align: center;
     overflow: hidden;
