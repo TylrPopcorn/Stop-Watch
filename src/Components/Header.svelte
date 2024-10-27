@@ -17,7 +17,7 @@
                     </svg>
                 </button>
                 
-                <a role="button" id="burgerMenu" class="navbar-burger / has-text-black" aria-label="menu" aria-expanded="false" data-target="navbarMenu" href="#">
+                <a role="button" id="burgerMenu" class="navbar-burger / has-text-black" aria-label="menu" aria-expanded="false" d   ata-target="navbarMenu" href="#">
                     <!-- HAMBURGER MENU -->
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -52,10 +52,10 @@
                     burgerIcon.classList.toggle("has-text-white")
                 });
 
-               navButtons.forEach(button => {
-                button.addEventListener("mouseenter", () => {
-                    button.classList.toggle("has-text-white");
-                    button.classList.toggle("has-text-black");
+                navButtons.forEach(button => {
+                    button.addEventListener("mouseenter", () => {
+                        button.classList.toggle("has-text-white");
+                        button.classList.toggle("has-text-black");
                 });
 
                 button.addEventListener("mouseleave", () => {
