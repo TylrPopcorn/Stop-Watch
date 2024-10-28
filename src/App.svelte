@@ -28,7 +28,7 @@
   let milliseconds = 0;
   let interval;
   let clockActive = false;
-  let color = "#ff3860"; // Default color for initial state
+  let color = "#ffdd57"; // Default color for initial state
 
 	//Functions:---------
 	const stopClock = function(){
@@ -86,7 +86,7 @@
   <section class="section / has-text-centered">
     <div class="container">
       <div class="stopwatch-wrapper">
-        <p class="subtitle / is-size-1 / has-text-weight-bold " style="
+        <p class="title / has-text-weight-bold " style="
          border: 5px solid {color};  box-shadow: 0 0 20px {color}, inset 0 0 20px rgba(0, 0, 0, 0.2); color: {color}">
           <span class="minutes">{minutes < 10 ? `0${minutes}` : minutes}:</span>
           <span class="seconds">{seconds < 10 ? `0${seconds}` : seconds}:</span>
@@ -113,7 +113,7 @@
   justify-content: center;
   align-items: center;
   
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .stopwatch-wrapper p{
@@ -135,7 +135,7 @@
 
     text-align: center;
     overflow: hidden;
+
+    font-size: clamp(1.5rem, 2vw + 1rem, 5rem);
 }
-
-
 </style>
