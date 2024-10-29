@@ -4,6 +4,8 @@
 
 A simple stop watch application, created using Svelte.js, can be a useful tool for keeping track of time during various tasks or activities. Designed with a clean and intuitive user interface, the project serves as a basic example of how to combine Svelte.js and Bulma CSS to create a meaningful and functional application.
 
+Live: https://stop-watch-jhuw.onrender.com/
+
 -----
 ## Project Setup
 - [ ] Run `npm install` to install your dependencies.
